@@ -12,9 +12,8 @@ Html Downloader::loading_https(std::string& host, const std::string& target) {
     load_root_certificates(ctx);
     boost::asio::ip::tcp::resolver resolver{ ioc };
     ssl::stream<boost::asio::ip::tcp::socket> stream{ ioc, ctx };
-    if (!SSL_set_tlsext_host_name(stream.native_handle(), host.c_str(
-
-                                                              )))
+    if (!SSL_set_tlsext_host_name(stream.native_handle(),
+                                  host.c_str()))
     {
       boost::system::error_code ec{ static_cast<int>(::ERR_get_error()),
                                    boost::asio::error::get_ssl_category() };
@@ -35,9 +34,8 @@ Html Downloader::loading_https(std::string& host, const std::string& target) {
     boost::beast::http::response<boost::beast::http::dynamic_body> res;
     boost::beast::http::read(stream, buffer, res);
 
-    std::string string_body = boost::beast::buffers_to_string(res.body().data(
-
-        ));
+    std::string string_body = boost::beast::buffers_to_string(res.body()
+                                                                  .data());
     boost::system::error_code ec;
     stream.shutdown(ec);
     if (ec == boost::asio::error::eof)
@@ -78,8 +76,8 @@ Html Downloader::loading_http(const std::string& host,
     boost::beast::flat_buffer buffer;
     boost::beast::http::response<boost::beast::http::dynamic_body> res;
     boost::beast::http::read(socket, buffer, res);
-    std::string string_body = boost::beast::buffers_to_string(res.body().data(
-        ));
+    std::string string_body = boost::beast::buffers_to_string(res.body()
+                                                                  .data());
     boost::system::error_code ec;
     socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
     if (ec == boost::asio::error::eof)
@@ -127,8 +125,8 @@ Html Downloader::load_html_list(const std::string& url_) {
                 url.substr(url.find(':')+3).substr(url.substr(url
                                                                     .find(
                                                                         ':')
-                                                                +3).find('/'
-                                                               ));
+                                                                +3).find(
+                                                             '/'));
         return loading_http(host, target);
       } else
         return Html{};
