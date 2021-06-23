@@ -1,7 +1,7 @@
 // Copyright 2021 by FORTYSS
 
-#ifndef CRAWLER_H
-#define CRAWLER_H
+#ifndef CRAWLER_HPP_
+#define CRAWLER_HPP_
 
 #include <iostream>
 #include <string>

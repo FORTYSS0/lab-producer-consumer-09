@@ -1,7 +1,7 @@
 // Copyright 2021 by FORTYSS
 
-#ifndef PARSER_HPP
-#define PARSER_HPP
+#ifndef PARSER_HPP_
+#define PARSER_HPP_
 #include <Crawler.hpp>
 
 class Parser{
@@ -27,4 +27,4 @@ class Parser{
   std::deque<std::string> links;
   std::vector<std::string>& ref_img;
 };
-#endif  // PARSER_HPP
+#endif  // PARSER_HPP_

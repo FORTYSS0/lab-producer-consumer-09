@@ -1,7 +1,7 @@
 // Copyright 2021 by FORTYSS
 
-#ifndef DOWNLOADER_HPP
-#define DOWNLOADER_HPP
+#ifndef DOWNLOADER_HPP_
+#define DOWNLOADER_HPP_
 #include <Crawler.hpp>
 
 class Downloader{
@@ -18,4 +18,4 @@ class Downloader{
 
   ThreadPool loaders;
 };
-#endif  // DOWNLOADER_HPP
+#endif  // DOWNLOADER_HPP_
