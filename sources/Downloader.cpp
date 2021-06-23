@@ -124,8 +124,9 @@ Html Downloader::load_html_list(const std::string& url_) {
                                                                 +3).find(
                                                              '/'));
         return loading_http(host, target);
-      } else
+      } else {
         return Html{};
+      }
   }, url_);
   return res.get();
 }
