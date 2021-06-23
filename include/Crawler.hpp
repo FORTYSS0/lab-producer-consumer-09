@@ -1,7 +1,7 @@
 // Copyright 2021 by FORTYSS
 
-#ifndef CRAWLER_HPP_
-#define CRAWLER_HPP_
+#ifndef INCLUDE_CRAWLER_HPP_
+#define INCLUDE_CRAWLER_HPP_
 
 #include <iostream>
 #include <string>
@@ -48,4 +48,4 @@ class Crawler{
   std::vector<std::string> img;
   std::deque<std::pair<std::deque<std::string>, std::deque<Html>>> levels;
 };
-#endif  // CRAWLER_H
+#endif  // INCLUDE_CRAWLER_HPP_

@@ -1,7 +1,7 @@
 // Copyright 2021 by FORTYSS
 
-#ifndef PARSER_HPP_
-#define PARSER_HPP_
+#ifndef INCLUDE_PARSER_HPP_
+#define INCLUDE_PARSER_HPP_
 #include <Crawler.hpp>
 
 class Parser{
