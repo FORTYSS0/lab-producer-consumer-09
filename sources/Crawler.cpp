@@ -16,14 +16,14 @@ void Crawler::start(const std::string& url, const int& num_loaders,
     std::deque<std::string> next_all_links;
     std::deque<Html> next_htmls;
     levels.emplace_back(next_all_links, next_htmls);
-    while( !levels[i].first.empty() || !levels[i].second.empty()){
-      if( !levels[i].first.empty()) {
+    while (!levels[i].first.empty() || !levels[i].second.empty()){
+      if (!levels[i].first.empty()) {
         levels[i].second.push_back(downloader.load_html_list(
             levels[i].first.front()));
         levels[i].first.pop_front();
       }
-      if( !levels[i].second.empty()){
-        for( auto & a : parser.parse(levels[i].second.front(),
+      if (!levels[i].second.empty()){
+        for (auto & a : parser.parse(levels[i].second.front(),
                                     (i + 1 == depth))){
           levels[i+1].first.push_back(a);
         }
