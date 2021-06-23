@@ -35,7 +35,7 @@ class Crawler{
  public:
   Crawler(int depth_, std::string path) :
                                       depth(depth_),
-                                      file(std::move(path)){};
+                                      file(std::move(path)){}
   ~Crawler();
 
   void start(const std::string& url, const int& num_loaders, const int&

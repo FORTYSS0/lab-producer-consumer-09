@@ -2,11 +2,13 @@
 
 #ifndef INCLUDE_DOWNLOADER_HPP_
 #define INCLUDE_DOWNLOADER_HPP_
+
 #include <Crawler.hpp>
+#include <string>
 
 class Downloader{
  public:
-  Downloader(const int& num_workers) : loaders(num_workers){};
+  Downloader(const int& num_workers) : loaders(num_workers){}
 
   Html load_html_list(const std::string& url);
 
@@ -15,7 +17,6 @@ class Downloader{
   static Html loading_http(const std::string& host, const std::string& target);
 
  private:
-
   ThreadPool loaders;
 };
 #endif  // INCLUDE_DOWNLOADER_HPP_
