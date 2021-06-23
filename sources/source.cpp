@@ -5,8 +5,6 @@
 int loading_html() {
   try
   {
-    // адрес страницы для скачивания: https://www.boost.org/doc/libs/1_69_0/libs/beast/example/http/client/sync-ssl/http_client_sync_ssl.cpp
-
     auto const host = "www.boost.org";
     auto const port = "443"; // https - 443, http - 80
     auto const target = "/doc/libs/1_69_0/libs/beast/example/http/client/"
@@ -21,9 +19,6 @@ int loading_html() {
 
     // This holds the root certificate used for verification
     load_root_certificates(ctx);
-
-    // Verify the remote server's certificate
-    //ctx.set_verify_mode(ssl::verify_peer);
 
     // These objects perform our I/O
     boost::asio::ip::tcp::resolver resolver{ ioc };
@@ -77,8 +72,6 @@ int loading_html() {
     stream.shutdown(ec);
     if (ec == boost::asio::error::eof)
     {
-      // Rationale:
-      // http://stackoverflow.com/questions/25587403/boost-asio-ssl-async-shutdown-always-finishes-with-an-error
       ec.assign(0, ec.category());
     }
     if (ec)
