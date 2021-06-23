@@ -8,7 +8,7 @@
 
 class Downloader{
  public:
-  Downloader(const int& num_workers) : loaders(num_workers){}
+  explicit Downloader(const int& num_workers) : loaders(num_workers){}
 
   Html load_html_list(const std::string& url);
 
